@@ -2,6 +2,7 @@ import nextcord
 from nextcord.ext import commands
 import datetime
 from db import update_message_count, check_message_count
+import os
 
 intents = nextcord.Intents.default()
 intents.message_content = True
@@ -117,4 +118,5 @@ async def on_message(message):
     await bot.process_commands(message)
 # Запуск бота
 
-bot.run('MTEyMzIwOTM4MzUwNjEwMDM1NQ.Gjlf75.3EzN12Wg5-_q2MAl7W9JbVTA5g9J4a7uka9q4M')
+token = os.getenv('TOKEN')
+bot.run(token)
