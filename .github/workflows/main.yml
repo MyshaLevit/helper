@@ -20,4 +20,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run bot
-        run: python bot.py
+        run: python bot.py ${{ secrets.TOKEN }}
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
