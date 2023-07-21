@@ -140,8 +140,8 @@ async def on_message(message):
             elif role == '•| ⊱💗⊰ |•Control':
                 message_goal = 80
             messages_left = message_goal - message_count
-            if messages_left <= 0:
-                await message.channel.send(f"{message.author.mention}, поздравляю! Вы выполнили свою норму сообщений за сегодня. Ваша роль на сервере: {role}.")
+            if messages_left <= 0 and 'Уведомление отправлено' not in [str(x.content) for x in await message.channel.history(limit=10).flatten()]:
+                await message.channel.send(f"{message.author.mention}, поздравляю! Вы выполнили свою норму сообщений за сегодня. Ваша роль на сервере: {role}. Уведомление отправлено")
     await bot.process_commands(message)
 # Запуск бота
 
